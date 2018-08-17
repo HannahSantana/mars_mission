@@ -102,7 +102,6 @@ def marsHemisphere():
 
     updated_photos = []
 
-
     for data in mars_hemisphere_list:
         link_to_check = data.get('img_url')
         title = data.get('title')
