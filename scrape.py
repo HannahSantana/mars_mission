@@ -12,7 +12,7 @@ driver = webdriver.Chrome('C:/Users/hanna/chromedriver/chromedriver.exe')
 
 # Scrape Function
 
-def scrape():
+def scraped():
     final_data = {}
     final_data["mars_news"] = marsNews()
     final_data["mars_image"] = marsImage()
@@ -30,7 +30,7 @@ def marsNews():
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     news_title = soup.find("div", class_ = "content_title").text
-    news_content = soup.find("div", class_ = "article_teaser_body").text
+    news_content = soup.find("div",class_="article_teaser_body").text.encode('utf8').strip()
     news = [news_title, news_content]
     return news
 
@@ -111,7 +111,6 @@ def marsHemisphere():
             'Url': final_image_url
         })
     return updated_photos    
-
 
 
     
